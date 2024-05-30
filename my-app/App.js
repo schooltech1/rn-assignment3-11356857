@@ -3,6 +3,7 @@ import { View, Text, ScrollView, StyleSheet, FlatList } from 'react-native';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import CategoryCard from './components/CategoryCard';
+import TaskCard from './components/TaskCard';
 
 const categories = [
   { title: 'Exercise', taskCount: 1, image: require('./assets/exercise.jpg') },
@@ -15,14 +16,19 @@ const categories = [
   { title: 'Meditate', taskCount: 8, image: require('./assets/meditate.webp') },
 ];
 
+const tasks = [
+  'Mobile App Development', 'Web Development', 'Push Ups', 'Reading a Book', 'Cooking Dinner',
+  'Learning React Native', 'Writing a Blog Post', 'Listening to Music', 'Jogging', 'Meditating',
+  'Cleaning the House', 'Watching a Tutorial', 'Practicing Yoga', 'Planning a Trip', 'Playing Guitar'
+];
 
 const App = () => {
   return (
     <ScrollView style={styles.container}>
       <Header />
-      <SearchBar/>
+      <SearchBar />
 
-      {/*CategoryCard section*/}
+      {/* Categories Section */}
       <Text style={styles.sectionTitle}>Categories</Text>
       <ScrollView horizontal={true} style={styles.horizontalScroll} showsHorizontalScrollIndicator={false}>
         <View style={styles.categoriesContainer}>
@@ -36,6 +42,14 @@ const App = () => {
           ))}
         </View>
       </ScrollView>
+
+      {/* Ongoing Tasks Section */}
+      <Text style={styles.sectionTitle}>Ongoing Task</Text>
+      <FlatList
+        data={tasks}
+        renderItem={({ item }) => <TaskCard task={item} />}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </ScrollView>
   );
 };
@@ -61,4 +75,3 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
