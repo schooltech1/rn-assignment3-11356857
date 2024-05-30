@@ -15,14 +15,14 @@ const CategoryCard = ({ image, title, taskCount }) => {
 
 const styles = StyleSheet.create({
   categoryCard: {
-    width: 300,  
+    width: '20%',  
     backgroundColor: '#FFF',
     padding: 10,
     borderRadius: 12,
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#DDD',
-    marginRight: 60,  
+    marginRight: 30,  
     borderRadius:50,
   },
   categoryImage: {
